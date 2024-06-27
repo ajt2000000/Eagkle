@@ -13,114 +13,54 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 </head>
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-#loading {
-    /* 画面いっぱいになる箇所 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: deepskyblue;
-    transition: all 1s;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
- 
-    &.loaded {
-        opacity: 0;
-        visibility: hidden;
-    }
- 
-    /* 中のローディングアニメ */
-    .loader,
-    .loader:before,
-    .loader:after {
-        background: #ffffff;
-        animation: loading 1s infinite ease-in-out;
-        width: 1em;
-        height: 4em;
-    }
- 
-    .loader {
-        color: #ffffff;
-        text-indent: -9999em;
-        margin: 88px auto;
-        position: relative;
-        font-size: 11px;
-        transform: translateZ(0);
-        animation-delay: -0.16s;
- 
-        &::before,
-        &::after {
-            position: absolute;
-            top: 0;
-            content: '';
-        }
- 
-        &::before {
-            left: -1.5em;
-            animation-delay: -0.32s;
-        }
- 
-        &::after {
-            left: 1.5em;
-        }
-    }
- 
- 
- 
-    @-webkit-keyframes loading {
- 
-        0%,
-        80%,
-        100% {
-            box-shadow: 0 0;
-            height: 4em;
-        }
- 
-        40% {
-            box-shadow: 0 -2em;
-            height: 5em;
-        }
-    }
- 
-    @keyframes loading {
- 
-        0%,
-        80%,
-        100% {
-            box-shadow: 0 0;
-            height: 4em;
-        }
- 
-        40% {
-            box-shadow: 0 -2em;
-            height: 5em;
-        }
-    }
- 
-}
-</style>
-<script>
-  window.onload = function () {
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-}
-</script>
-</head>
-<body>
-  <div id="loading">
-    <div class="loader"></div>
-</div>
-  <main id=content>
-<h1><strong>Minecraft ChromeOS Edition Ver1.8.8</strong></h1>
-<h3><strong>このプロジェクトはChromeOSでマイクラを動かすプロジェクトです。<br />アプリをインストールした後に開くとゲームが起動します<br />このページからは開けません。</strong></h3>
+<header>
+  <div class="logo">Minecraft ChromeOS Edition Ver1.8.8</div>
+  <div class="menu"> &nbsp;&nbsp;プロジェクトはChromeOSでマイクラを動かすプロジェクトです。</div>
+</header>
+
+<div class="content">
+<h3>アプリをインストールした後に開くとゲームが起動します<br />このページからは開けません。</strong></h3>
 <p><strong>当プログラムにはサーバーもあります。<br />マルチプレイにサーバーがあると思われます。<br /><br /><span style="color: #e03e2d;">アプリをインストールが表示されない場合<br /><span style="color: #000000;">再読み込みすると治る可能性があります。<br /><br />Source<br /><a title="Eaglercraft-Japanese" href="https://github.com/U5KUN/Eaglercraft-Japanese" target="_blank" rel="noopener">Eaglercraft-Japanese</a><br /><a title="Eaglercraft-for-JapanProject" href="https://magurock.github.io/Eaglercraft-for-Japan/Normal/">Eaglercraft-for-Japan/Normal/</a><br /><a href="https://eaglercraft.com/">EaglerCraft_Projext</a><br /><a href="https://www.bing.com/ck/a?!&amp;&amp;p=a34e750b5c341d46JmltdHM9MTcxOTQ0NjQwMCZpZ3VpZD0yMTUxYjczYy05ZGM5LTZkN2ItMmEzMC1hMzljOWM3ZTZjZjcmaW5zaWQ9NTM0MA&amp;ptn=3&amp;ver=2&amp;hsh=3&amp;fclid=2151b73c-9dc9-6d7b-2a30-a39c9c7e6cf7&amp;psq=eaglercraft&amp;u=a1aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj0wX2RsVWNOZE9Maw&amp;ntb=1">【無料マイクラ】誰でも出来る無料WEBマイクラ！【Eaglercraft】（自己責任）</a><br /><br /><br /></span></span></strong></p>
   </main>
-</body>
-</html>
+</div>
+<style>
+  * {font-family:arial; margin:0; padding:0;}
+.logo {font-size:40px; font-weight:bold;color:#00a; font-style:italic;}
+.intro {color:#777; font-style:italic; margin:10px 0;}
+.menu {background:#00a; color:#fff; height:40px; line-height:40px;letter-spacing:1px; width:100%;}
+.content {margin-top:10px;}
+.menu-padding {padding-top:40px;}
+.content {padding:10px;}
+.content p {margin-bottom:20px;}
+
+</style>
+<script>
+
+  // Create a clone of the menu, right next to original.
+$('.menu').addClass('original').clone().insertAfter('.menu').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
+
+scrollIntervalID = setInterval(stickIt, 10);
+
+
+function stickIt() {
+
+  var orgElementPos = $('.original').offset();
+  orgElementTop = orgElementPos.top;               
+
+  if ($(window).scrollTop() >= (orgElementTop)) {
+    // scrolled past the original position; now only show the cloned, sticky element.
+
+    // Cloned element should always have same left position and width as original element.     
+    orgElement = $('.original');
+    coordsOrgElement = orgElement.offset();
+    leftOrgElement = coordsOrgElement.left;  
+    widthOrgElement = orgElement.css('width');
+    $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+    $('.original').css('visibility','hidden');
+  } else {
+    // not scrolled past the menu; only show the original menu.
+    $('.cloned').hide();
+    $('.original').css('visibility','visible');
+  }
+}
+</script>
