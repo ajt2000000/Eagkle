@@ -1,3 +1,4 @@
+const CACHE_VERSION = 'v1';
 var cacheName = "MC";
 var appShellFiles = [
   "classes.js",
