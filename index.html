@@ -1,5 +1,16 @@
 <h1>Minecraft Eagler1.8.8</h1>
 <head>
-<script src="js/jquery.min.js" charset="utf-8"></script>
+<script src="jquery.min.js" charset="utf-8"></script>
 <link rel="manifest" href="manifest.json">
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+    // 登録成功
+    console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+  }).catch(function(err) {
+    // 登録失敗
+    console.log('ServiceWorker の登録に失敗しました。', err);
+  });
+}
+</script>
 </head>
