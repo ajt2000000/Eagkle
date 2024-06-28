@@ -1,21 +1,6 @@
 <head>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<link rel="manifest" href="manifest.json">
-  <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(function(registration) {
-    // 登録成功
-    console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
-  }).catch(function(err) {
-    // 登録失敗
-    console.log('ServiceWorker の登録に失敗しました。', err);
-  });
-}
-</script>
-  <meta property="og:image" content="favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link type="image/png" rel="shortcut icon" href="favicon.png" />
-  <title>Minecraft</title>
+<link rel="manifest" href="https://progressier.app/qTityJiyBeKc6X6gyH14/progressier.json"/>
+<script defer src="https://progressier.app/qTityJiyBeKc6X6gyH14/script.js"></script>
 </head>
 <header>
   <div class="logo">Minecraft ChromeOS Edition Ver1.8.8</div>
@@ -42,60 +27,3 @@ if ('serviceWorker' in navigator) {
 .content p {margin-bottom:20px;}
 
 </style>
-<script>
-//バナーの代わりに表示するボタンを登録する
-registerInstallAppEvent(document.getElementById("InstallBtn"));
-
-//バナー表示をキャンセルし、代わりに表示するDOM要素を登録する関数
-//引数１：イベントを登録するHTMLElement
-function registerInstallAppEvent(elem){
-  //インストールバナー表示条件満足時のイベントを乗っ取る
-  window.addEventListener('beforeinstallprompt', function(event){
-    console.log("beforeinstallprompt: ", event);
-    event.preventDefault(); //バナー表示をキャンセル
-    elem.promptEvent = event; //eventを保持しておく
-    elem.style.display = "block"; //要素を表示する
-    return false;
-  });
-  //インストールダイアログの表示処理
-  function installApp() {
-    if(elem.promptEvent){
-      elem.promptEvent.prompt(); //ダイアログ表示
-      elem.promptEvent.userChoice.then(function(choice){
-        elem.style.display = "none";
-        elem.promptEvent = null; //一度しか使えないため後始末
-      });//end then
-    }
-  }//end installApp
-  //ダイアログ表示を行うイベントを追加
-  elem.addEventListener("click", installApp);
-}//end registerInstallAppEvent
-  
-  // Create a clone of the menu, right next to original.
-$('.menu').addClass('original').clone().insertAfter('.menu').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
-
-scrollIntervalID = setInterval(stickIt, 10);
-
-
-function stickIt() {
-
-  var orgElementPos = $('.original').offset();
-  orgElementTop = orgElementPos.top;               
-
-  if ($(window).scrollTop() >= (orgElementTop)) {
-    // scrolled past the original position; now only show the cloned, sticky element.
-
-    // Cloned element should always have same left position and width as original element.     
-    orgElement = $('.original');
-    coordsOrgElement = orgElement.offset();
-    leftOrgElement = coordsOrgElement.left;  
-    widthOrgElement = orgElement.css('width');
-    $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
-    $('.original').css('visibility','hidden');
-  } else {
-    // not scrolled past the menu; only show the original menu.
-    $('.cloned').hide();
-    $('.original').css('visibility','visible');
-  }
-}
-</script>
