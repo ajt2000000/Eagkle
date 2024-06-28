@@ -1,6 +1,16 @@
 <head>
-<link rel="manifest" href="https://progressier.app/qTityJiyBeKc6X6gyH14/progressier.json"/>
-<script defer src="https://progressier.app/qTityJiyBeKc6X6gyH14/script.js"></script>
+<link rel="manifest" href="manifest.json"/>
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+    // 登録成功
+    console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+  }).catch(function(err) {
+    // 登録失敗
+    console.log('ServiceWorker の登録に失敗しました。', err);
+  });
+}
+</script>
 </head>
 <header>
   <div class="logo">Minecraft ChromeOS Edition Ver1.8.8</div>
