@@ -31,7 +31,7 @@
   "display": "minimal-ui",
   "dir": "auto",
   "lang": "ja",
-  "start_url": "app.html",
+  "start_url": "https://ioase.net/app.html",
   "scope": "/",
   "display_override": [
     "minimal-ui",
