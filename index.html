@@ -27,6 +27,10 @@ if ('serviceWorker' in navigator) {
 <p><strong>当プログラムにはサーバーもあります。<br />マルチプレイにサーバーがあると思われます。<br /><br /><span style="color: #e03e2d;">アプリをインストールが表示されない場合<br /><span style="color: #000000;">再読み込みすると治る可能性があります。<br /><br />Source<br /><a title="Eaglercraft-Japanese" href="https://github.com/U5KUN/Eaglercraft-Japanese" target="_blank" rel="noopener">Eaglercraft-Japanese</a><br /><a title="Eaglercraft-for-JapanProject" href="https://magurock.github.io/Eaglercraft-for-Japan/Normal/">Eaglercraft-for-Japan/Normal/</a><br /><a href="https://eaglercraft.com/">EaglerCraft_Projext</a><br /><a href="https://www.bing.com/ck/a?!&amp;&amp;p=a34e750b5c341d46JmltdHM9MTcxOTQ0NjQwMCZpZ3VpZD0yMTUxYjczYy05ZGM5LTZkN2ItMmEzMC1hMzljOWM3ZTZjZjcmaW5zaWQ9NTM0MA&amp;ptn=3&amp;ver=2&amp;hsh=3&amp;fclid=2151b73c-9dc9-6d7b-2a30-a39c9c7e6cf7&amp;psq=eaglercraft&amp;u=a1aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj0wX2RsVWNOZE9Maw&amp;ntb=1">【無料マイクラ】誰でも出来る無料WEBマイクラ！【Eaglercraft】（自己責任）</a><br /><br /><br /></span></span></strong></p>
   </main>
 </div>
+<p>それでも無理な場合</p>
+<button id="InstallBtn" style="display:none">
+  インストール
+</button>
 <style>
   * {font-family:arial; margin:0; padding:0;}
 .logo {font-size:40px; font-weight:bold;color:#00a; font-style:italic;}
@@ -39,7 +43,34 @@ if ('serviceWorker' in navigator) {
 
 </style>
 <script>
+//バナーの代わりに表示するボタンを登録する
+registerInstallAppEvent(document.getElementById("InstallBtn"));
 
+//バナー表示をキャンセルし、代わりに表示するDOM要素を登録する関数
+//引数１：イベントを登録するHTMLElement
+function registerInstallAppEvent(elem){
+  //インストールバナー表示条件満足時のイベントを乗っ取る
+  window.addEventListener('beforeinstallprompt', function(event){
+    console.log("beforeinstallprompt: ", event);
+    event.preventDefault(); //バナー表示をキャンセル
+    elem.promptEvent = event; //eventを保持しておく
+    elem.style.display = "block"; //要素を表示する
+    return false;
+  });
+  //インストールダイアログの表示処理
+  function installApp() {
+    if(elem.promptEvent){
+      elem.promptEvent.prompt(); //ダイアログ表示
+      elem.promptEvent.userChoice.then(function(choice){
+        elem.style.display = "none";
+        elem.promptEvent = null; //一度しか使えないため後始末
+      });//end then
+    }
+  }//end installApp
+  //ダイアログ表示を行うイベントを追加
+  elem.addEventListener("click", installApp);
+}//end registerInstallAppEvent
+  
   // Create a clone of the menu, right next to original.
 $('.menu').addClass('original').clone().insertAfter('.menu').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
 
