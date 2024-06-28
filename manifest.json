@@ -38,9 +38,9 @@
   "display": "minimal-ui",
   "dir": "auto",
   "lang": "ja",
-  "start_url": "https://ioase.net/app.html",
+  "start_url": "https://ioase.net/wave.html",
   "scope": "/",
-  "id": "/app.html",
+  "id": "/wave.html",
   "display_override": [
     "minimal-ui",
     "fullscreen",
