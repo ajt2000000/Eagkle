@@ -1,37 +1,57 @@
 {
-    "name": "Minecraft",
-    "short_name": "Minecraft",
-    "theme_color": "#bd0000",
-    "background_color": "#005701",
-    "icons": [
-        {
-            "src": "https://github.com/ajt2000000/Eagkle/blob/main/icon512_maskable.png?raw=true",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "https://github.com/ajt2000000/Eagkle/blob/main/icon512_maskable.png?raw=true",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "screenshot1.webp",
-            "sizes": "1280x720",
-            "type": "image/webp",
-            "platform": "wide",
-            "label": "Homescreen of Awesome App"
-        }
-    ],
-    "orientation": "any",
-    "description": "ChromeBook Play ChromeOS",
-    "display": "minimal-ui",
-    "dir": "auto",
-    "lang": "ja",
-    "start_url": "/app.html",
-    "scope": "/"
-    
+  "name": "Minecraft",
+  "short_name": "Minecraft",
+  "theme_color": "#bd0000",
+  "background_color": "#005701",
+  "icons": [
+    {
+      "src": "https://github.com/ajt2000000/Eagkle/blob/main/icon512_maskable.png?raw=true",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://github.com/ajt2000000/Eagkle/blob/main/icon512_maskable.png?raw=true",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot1.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "Homescreen of Awesome App"
+    }
+  ],
+  "orientation": "any",
+  "description": "ChromeBook Play ChromeOS",
+  "display": "minimal-ui",
+  "dir": "auto",
+  "lang": "ja",
+  "start_url": "/app.html",
+  "scope": "/",
+  "display_override": [
+    "minimal-ui",
+    "fullscreen",
+    "standalone",
+    "window-controls-overlay"
+  ],
+  "shortcuts": [
+    {
+      "name": "PAGE",
+      "url": "https://ioase.net",
+      "description": ""
+    },
+    {
+      "name": "PLAY",
+      "url": "https://ioase.net",
+      "description": ""
+    }
+  ],
+  "categories": [
+    "games"
+  ]
 }
