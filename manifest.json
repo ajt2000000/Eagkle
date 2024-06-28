@@ -40,6 +40,7 @@
   "lang": "ja",
   "start_url": "https://ioase.net/app.html",
   "scope": "/",
+  "id": "/app.html",
   "display_override": [
     "minimal-ui",
     "fullscreen",
