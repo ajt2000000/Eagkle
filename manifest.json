@@ -18,6 +18,7 @@
         }
     ],
     "orientation": "any",
+    "description": "ChromeBook Play ChromeOS"
     "display": "minimal-ui",
     "dir": "auto",
     "lang": "ja",
