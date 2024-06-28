@@ -17,17 +17,17 @@
             "purpose": "any"
         }
     ],
-    "screenshots" : [
-  {
-    "src": "screenshot1.webp",
-    "sizes": "1280x720",
-    "type": "image/webp",
-    "platform": "wide",
-    "label": "Homescreen of Awesome App"
-  }
-]
+    "screenshots": [
+        {
+            "src": "screenshot1.webp",
+            "sizes": "1280x720",
+            "type": "image/webp",
+            "platform": "wide",
+            "label": "Homescreen of Awesome App"
+        }
+    ],
     "orientation": "any",
-    "description": "ChromeBook Play ChromeOS"
+    "description": "ChromeBook Play ChromeOS",
     "display": "minimal-ui",
     "dir": "auto",
     "lang": "ja",
