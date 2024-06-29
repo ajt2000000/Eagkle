@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="manifest" href="https://raw.githubusercontent.com/ajt2000000/Eagkle/main/manifest.json"/>
+    <link rel="icon" href="favicon.png">
+    <title>MCEP</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js').then(function(registration) {
+            // 登録成功
+            console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+          }).catch(function(err) {
+            // 登録失敗
+            console.log('ServiceWorker の登録に失敗しました。', err);
+          });
+        }
+        </script>
+</head>
+<body>
+    <ul class="example2">
+        <li><iframe src="menu.html" scrolling="no" class="menu1"></iframe></li>
+        <li><iframe src="ra.html" class="tab"></iframe></li>
+    </ul>
+<body>
+
+</body>
+
+</body>
+<style>
+.menu1{
+    height: 96vh;
+    width: 210px;
+    border: 1px solid;
+}
+.tab{
+    height: 96vh;
+    width: 155vh;
+    border: 1px solid;
+}
+.example2{
+    display: flex;
+}
+/*webサイトの背景*/ body{
+background-size: 12%;background-color: antiquewhite;background-image: url(https://ioase.net/CSS/logo.png)
+}
+</style>
+</html>
