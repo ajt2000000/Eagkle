@@ -39,7 +39,9 @@
 <h3>プレイ方法</h3>
   <hr>
 <p>この下にボタンが表示されている場合はらくらくインストールができます。</p>
-  <button id="installButton" style="display: none;">らくらくインストールを実行</button>
+  <button id="InstallBtn" style="display:none">
+  アプリをインストールする
+</button>
   <p>表示されていない場合はショートカットを作ってくださいその時に[ウィンドウとして開く]を選択してください。</p>
   <hr>
         <hr>
@@ -47,34 +49,33 @@
         <p>バグあって直すのがめんどくさい</p>
         <p>オフラインバージョン</p>
         <a href="https://github.com/ajt2000000/Eagkle/raw/main/DL.zip"><p>ダウンロード</p></a>
- <script>
-        window.addEventListener('load', () => {
-            let deferredPrompt;
-            const installButton = document.getElementById('installButton');
+    <script>
+ registerInstallAppEvent(document.getElementById("InstallBtn"));
 
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                installButton.style.display = 'block';
-
-                installButton.addEventListener('click', () => {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('User accepted the A2HS prompt');
-                            setTimeout(() => {
-                              if(!alert("インストールが完了しました。サイトを閉じてください。")){
-                                window.close();
-                              }
-                            }, 1000);
-                        } else {
-                            console.log('User dismissed the A2HS prompt');
-                        }
-                        deferredPrompt = null;
-                    });
-                });
-            });
-        });
+//バナー表示をキャンセルし、代わりに表示するDOM要素を登録する関数
+//引数１：イベントを登録するHTMLElement
+function registerInstallAppEvent(elem){
+  //インストールバナー表示条件満足時のイベントを乗っ取る
+  window.addEventListener('beforeinstallprompt', function(event){
+    console.log("beforeinstallprompt: ", event);
+    event.preventDefault(); //バナー表示をキャンセル
+    elem.promptEvent = event; //eventを保持しておく
+    elem.style.display = "block"; //要素を表示する
+    return false;
+  });
+  //インストールダイアログの表示処理
+  function installApp() {
+    if(elem.promptEvent){
+      elem.promptEvent.prompt(); //ダイアログ表示
+      elem.promptEvent.userChoice.then(function(choice){
+        elem.style.display = "none";
+        elem.promptEvent = null; //一度しか使えないため後始末
+      });//end then
+    }
+  }//end installApp
+  //ダイアログ表示を行うイベントを追加
+  elem.addEventListener("click", installApp);
+}//end registerInstallAppEvent
     </script>
 <br>
 <h3>作成の時にお世話になったサイト</h3>
