@@ -1,75 +1,47 @@
+<!DOCTYPE html>
+<html>
 <head>
-<link rel="manifest" href="https://raw.githubusercontent.com/ajt2000000/Eagkle/main/manifest.json"/>
-  <link rel="icon" href="favicon.png">
-<title>Minecraft</title>
-  <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(function(registration) {
-    // 登録成功
-    console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
-  }).catch(function(err) {
-    // 登録失敗
-    console.log('ServiceWorker の登録に失敗しました。', err);
-  });
-}
-</script>
+    <link rel="manifest" href="https://raw.githubusercontent.com/ajt2000000/Eagkle/main/manifest.json"/>
+    <link rel="icon" href="favicon.png">
+    <title>MCEP</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js').then(function(registration) {
+            // 登録成功
+            console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+          }).catch(function(err) {
+            // 登録失敗
+            console.log('ServiceWorker の登録に失敗しました。', err);
+          });
+        }
+        </script>
 </head>
-<header>
-  <div class="logo">Project Minecraft ChromeOS Edition Ver1.8.8</div>
-  <div class="menu"> &nbsp;&nbsp;プロジェクトはChromeOSでマイクラを動かすプロジェクトです。</div>
-</header>
+<body>
+    <ul class="example2">
+        <li><iframe src="menu.html" scrolling="no" class="menu1"></iframe></li>
+        <li><iframe src="home.html" class="tab"></iframe></li>
+    </ul>
+<body>
 
-<div class="content">
-<hr>
-<p>この下にボタンが表示されている場合はらくらくインストールができます。</p>
-  <button id="installButton" style="display: none;">らくらくインストールを実行</button>
-  <p>表示されていない場合はショートカットを作ってくださいその時に[ウィンドウとして開く]を選択してください。</p>
-  <hr>
-<h3>アプリをインストールした後に開くとゲームが起動します<br />このページからは開けません。</strong></h3>
-<p><strong>当プログラムにはサーバーもあります。<br />マルチプレイにサーバーがあると思われます。<br /><br /><span style="color: #e03e2d;">アプリをインストールが表示されない場合<br /><span style="color: #000000;">再読み込みすると治る可能性があります。<br /><br />Source<br /><a title="Eaglercraft-Japanese" href="https://github.com/U5KUN/Eaglercraft-Japanese" target="_blank" rel="noopener">Eaglercraft-Japanese</a><br /><a title="Eaglercraft-for-JapanProject" href="https://magurock.github.io/Eaglercraft-for-Japan/Normal/">Eaglercraft-for-Japan/Normal/</a><br /><a href="https://eaglercraft.com/">EaglerCraft_Projext</a><br /><a href="https://www.bing.com/ck/a?!&amp;&amp;p=a34e750b5c341d46JmltdHM9MTcxOTQ0NjQwMCZpZ3VpZD0yMTUxYjczYy05ZGM5LTZkN2ItMmEzMC1hMzljOWM3ZTZjZjcmaW5zaWQ9NTM0MA&amp;ptn=3&amp;ver=2&amp;hsh=3&amp;fclid=2151b73c-9dc9-6d7b-2a30-a39c9c7e6cf7&amp;psq=eaglercraft&amp;u=a1aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj0wX2RsVWNOZE9Maw&amp;ntb=1">【無料マイクラ】誰でも出来る無料WEBマイクラ！【Eaglercraft】（自己責任）</a><br /><br /><br /></span></span></strong></p>
-　<p>オフラインバージョン</p>
-  <a href="https://github.com/ajt2000000/Eagkle/raw/main/DL.zip"><p>ダウンロード</p></a>
-  <P>拡張機能.ver</P>
-    <a href="https://raw.githubusercontent.com/ajt2000000/Eagkle/main/Minecraft.crx"><p>ダウンロード</p></a>
-</main>
-      <script>
-        window.addEventListener('load', () => {
-            let deferredPrompt;
-            const installButton = document.getElementById('installButton');
+</body>
 
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                installButton.style.display = 'block';
-
-                installButton.addEventListener('click', () => {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('User accepted the A2HS prompt');
-                            setTimeout(() => {
-                              if(!alert("インストールが完了しました。サイトを閉じてください。")){
-                                window.close();
-                              }
-                            }, 1000);
-                        } else {
-                            console.log('User dismissed the A2HS prompt');
-                        }
-                        deferredPrompt = null;
-                    });
-                });
-            });
-        });
-    </script>
-</div>
+</body>
 <style>
-  * {font-family:arial; margin:0; padding:0;}
-.logo {font-size:40px; font-weight:bold;color:#00a; font-style:italic;}
-.intro {color:#777; font-style:italic; margin:10px 0;}
-.menu {background:#00a; color:#fff; height:40px; line-height:40px;letter-spacing:1px; width:100%;}
-.content {margin-top:10px;}
-.menu-padding {padding-top:40px;}
-.content {padding:10px;}
-.content p {margin-bottom:20px;}
-
+.menu1{
+    height: 96vh;
+    width: 210px;
+    border: 1px solid;
+}
+.tab{
+    height: 96vh;
+    width: 155vh;
+    border: 1px solid;
+}
+.example2{
+    display: flex;
+}
+/*webサイトの背景*/ body{
+background-size: 12%;background-color: antiquewhite;background-image: url(https://ioase.net/CSS/logo.png)
+}
 </style>
+</html>
