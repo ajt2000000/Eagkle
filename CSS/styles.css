@@ -45,6 +45,8 @@ width: 100px;
 height: 100px;
 }
 body {
+   font-family: Minecraftia;
+  text-align: center;
     background-size: 12%;
     background-color: antiquewhite;
     background-image: url(https://raw.githubusercontent.com/ajt2000000/Eagkle/main/image/Icon.png);
