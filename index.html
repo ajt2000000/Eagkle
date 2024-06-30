@@ -1,5 +1,6 @@
 <head>
 <link rel="manifest" href="https://raw.githubusercontent.com/ajt2000000/Eagkle/main/manifest.json"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="icon" href="favicon.png">
 <title>Minecraft</title>
   <script>
@@ -22,7 +23,9 @@ if ('serviceWorker' in navigator) {
 <div class="content">
 <hr>
 <p>この下にボタンが表示されている場合はらくらくインストールができます。</p>
-  <button id="installButton" style="display: none;">らくらくインストールを実行</button>
+  <button id="installButton" style="display: none;"><span class="material-symbols-outlined">
+place_item
+</span>らくらくインストールを実行</button>
   <p>表示されていない場合はショートカットを作ってくださいその時に[ウィンドウとして開く]を選択してください。</p>
   <hr>
 <h3>アプリをインストールした後に開くとゲームが起動します<br />このページからは開けません。</strong></h3>
@@ -71,5 +74,18 @@ if ('serviceWorker' in navigator) {
 .menu-padding {padding-top:40px;}
 .content {padding:10px;}
 .content p {margin-bottom:20px;}
-
+button {
+    -webkit-writing-mode: horizontal-tb !important;
+    -webkit-appearance: button;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px 7px 2px;
+    text-rendering: auto;
+    color: initial;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 11px system-ui;
+}
 </style>
