@@ -40,7 +40,7 @@
   "lang": "ja",
   "start_url": "https://ioase.net/wave.html",
   "scope": "/",
-  "id": "/wave.html",
+  "id": "/page/wave.html",
   "display_override": [
     "minimal-ui",
     "fullscreen",
@@ -55,7 +55,7 @@
     },
     {
       "name": "PLAY",
-      "url": "https://ioase.net/wave.html",
+      "url": "https://ioase.net/page/wave.html",
       "description": ""
     }
   ],
