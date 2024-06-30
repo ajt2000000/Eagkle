@@ -19,14 +19,14 @@
   ],
   "screenshots": [
     {
-      "src": "screenshot1.webp",
+      "src": "image/sce1.webp",
       "sizes": "1819x952",
       "type": "image/webp",
       "platform": "wide",
       "label": "Homescreen of Awesome App"
     },
      {
-      "src": "sce.png",
+      "src": "image/sce.png",
       "sizes": "1815x943",
       "type": "image/png",
       "platform": "wide",
