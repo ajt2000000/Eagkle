@@ -5,13 +5,13 @@
   "background_color": "#005701",
   "icons": [
     {
-      "src": "https://github.com/ajt2000000/Eagkle/blob/main/icon512_maskable.png?raw=true",
+      "src": "https://ioase.net/image/icon512_maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "https://github.com/ajt2000000/Eagkle/blob/main/icon512_maskable.png?raw=true",
+      "src": "https://ioase.net/image/icon512_rounded.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -40,7 +40,7 @@
   "lang": "ja",
   "start_url": "https://ioase.net/page/wave.html",
   "scope": "/",
-  "id": "/page/wave.html",
+  "id": "page/wave.html",
   "display_override": [
     "minimal-ui",
     "fullscreen",
