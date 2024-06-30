@@ -19,14 +19,14 @@
   ],
   "screenshots": [
     {
-      "src": "image/sce1.webp",
+      "src": "https://ioase.net/image/sce1.webp",
       "sizes": "1819x952",
       "type": "image/webp",
       "platform": "wide",
       "label": "Homescreen of Awesome App"
     },
      {
-      "src": "image/sce.png",
+      "src": "https://ioase.net/image/sce.png",
       "sizes": "1815x943",
       "type": "image/png",
       "platform": "wide",
