@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="icon" href="/image/favicon.png">
   <link rel="stylesheet" type="text/css" href="/CSS/styles.css">
+  <script src="/script/install.js"></script>
 <title>Minecraft</title>
   <script>
 if ('serviceWorker' in navigator) {
@@ -59,33 +60,4 @@ if ('serviceWorker' in navigator) {
   <a href="https://github.com/ajt2000000/Eagkle/raw/main/DL/DL.zip"><p>ダウンロード</p></a>
 </main>
   </body>
-      <script>
-        window.addEventListener('load', () => {
-            let deferredPrompt;
-            const installButton = document.getElementById('installButton');
-
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                installButton.style.display = 'block';
-
-                installButton.addEventListener('click', () => {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('User accepted the A2HS prompt');
-                            setTimeout(() => {
-                              if(!alert("インストールが完了しました。サイトを閉じてください。")){
-                                window.close();
-                              }
-                            }, 1000);
-                        } else {
-                            console.log('User dismissed the A2HS prompt');
-                        }
-                        deferredPrompt = null;
-                    });
-                });
-            });
-        });
-    </script>
 </div>
